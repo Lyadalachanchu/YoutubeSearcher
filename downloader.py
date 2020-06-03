@@ -35,8 +35,17 @@ def main():
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, credentials=credentials)
 
+    request = youtube.captions().list(
+        videoId="Q2aEzeMDHMA",
+        part="snippet"
+    )
+    response = request.execute()
+
+
+    id1 = response['items'][0]['id']
+
     request = youtube.captions().download(
-        id = 'MQ0nFnxh04GE3NkkOCNjrk37avnM-LwJ3ITJAJsMNVQ=',
+        id = id1,
         tfmt="sbv"
     )
     # TODO: For this request to work, you must replace "YOUR_FILE"
