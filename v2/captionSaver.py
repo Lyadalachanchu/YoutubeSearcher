@@ -16,9 +16,9 @@ def captionSaver(cID, path):
 	#print(ids) 
 
 	for i, s in enumerate(ids):
-		#print(type(s))
 		try:
 			transcript = YouTubeTranscriptApi.get_transcript(s)
+			transcript.append(s)
 			#print((transcript))
 
 			with open(path+'/captions/'+cID+'/{}.pkl'.format(str(i)), 'wb') as f:
