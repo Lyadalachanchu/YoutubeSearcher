@@ -34,11 +34,11 @@ def mainGet(apikey, cID, path):
 
 	#Searching Part
 	wsdv = []
-	for caption in captions:
+	for fileId, caption in enumerate(captions):
 		counter = 0
 		for line in caption:
 			for word in line['text'].split():
-				wsdv.append([word, counter])
+				wsdv.append([word, counter, fileId, line['start'], line['duration']])
 				counter += 1
 		
 
@@ -57,6 +57,6 @@ def mainGet(apikey, cID, path):
 				if(n == len(query)-1):
 					print('Found query at {}'.format(i))
 					store.append(i)
-					location = [i, i+len(query)-1]
+					location = [wsdv[i][3], wsdv[i][4], wsdv[i][2]]
 
-	print(location)
+			#Location : [start, duration, fileId(which number pickle file it's in)]
