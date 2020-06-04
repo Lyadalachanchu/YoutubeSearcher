@@ -34,10 +34,10 @@ def mainGet(apikey, cID, path):
 
 	#Searching Part
 	wsdv = []
-	for x, caption in enumerate(captions):
+	for caption in captions:
 		counter = 0
-		for z, line in enumerate(caption):
-			for a, word in enumerate(line['text'].split()):
+		for line in caption:
+			for word in line['text'].split():
 				wsdv.append([word, counter])
 				counter += 1
 		
