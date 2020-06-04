@@ -60,3 +60,4 @@ def mainGet(apikey, cID, path):
 					location = [wsdv[i][3], wsdv[i][4], wsdv[i][2]]
 
 			#Location : [start, duration, fileId(which number pickle file it's in)]
+	print(location)
