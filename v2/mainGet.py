@@ -7,18 +7,15 @@ import os
 
 def mainGet(apikey, cID, path):
 	api_key = apikey
+	captions = []
 
 	try:
 		os.mkdir(path+'/captions/'+cID)
+		gacfc(cID, path)
+		captionSaver(cID, path)
 	except:
 		print("file exists")
 
-
-	captions = []
-
-
-	gacfc(cID, path)
-	captionSaver(cID, path)
 
 	for filename in os.listdir(path+'/captions/'+cID):
 		try:
