@@ -74,8 +74,8 @@ def mainGet(apikey, cID, path):
 				if(n == len(query)-1):
 					print('Found query at {}'.format(i))
 					store.append(i)
-					location = [wsdv[i][3], wsdv[i][4], wsdv[i][2]]
+					location = [wsdv[i][3], wsdv[i+n][4]+wsdv[i+n][3], wsdv[i][2]]
 
 			#Location : [start, duration, fileId(which number pickle file it's in)]
-	print((idss[location[2]], location[0]))
+	print((idss[location[2]], location[0], location[1]))
 	#print(ids)
