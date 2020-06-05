@@ -59,7 +59,7 @@ def mainGet(apikey, cID, path):
 		idss.append(id.strip('\n'))
 		
 
-	query = "too big"
+	query = "to say thanks for the twitch prime"
 	query = query.split()
 	store = []
 	location = [None, None]
@@ -77,5 +77,7 @@ def mainGet(apikey, cID, path):
 					location = [wsdv[i][3], wsdv[i+n][4]+wsdv[i+n][3], wsdv[i][2]]
 
 			#Location : [start, duration, fileId(which number pickle file it's in)]
-	print((idss[location[2]], location[0], location[1]))
+	#print(idss[location[2]])
+	#int(location[2])
+	print("https://www.youtube.com/embed/"+str(idss[location[2]])+"?start="+str(int(location[0]))+"&end="+str(int(location[1])))
 	#print(ids)
