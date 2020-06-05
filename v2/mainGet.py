@@ -59,10 +59,10 @@ def mainGet(apikey, cID, path):
 		idss.append(id.strip('\n'))
 		
 
-	query = "to say thanks for the twitch prime"
+	query = "you see"
 	query = query.split()
 	store = []
-	location = [None, None]
+	location = []
 	for i in range(len(wsdv)):
 		if (wsdv[i][0] == query[0]):
 			for n in range(len(query)):
@@ -74,10 +74,9 @@ def mainGet(apikey, cID, path):
 				if(n == len(query)-1):
 					print('Found query at {}'.format(i))
 					store.append(i)
-					location = [wsdv[i][3], wsdv[i+n][4]+wsdv[i+n][3], wsdv[i][2]]
+					location.append([wsdv[i][3], wsdv[i+n][4]+wsdv[i+n][3], wsdv[i][2]])
 
 			#Location : [start, duration, fileId(which number pickle file it's in)]
-	#print(idss[location[2]])
-	#int(location[2])
-	print("https://www.youtube.com/embed/"+str(idss[location[2]])+"?start="+str(int(location[0]))+"&end="+str(int(location[1])))
-	#print(ids)
+
+	for i, l in enumerate(location):
+		print("https://www.youtube.com/embed/"+str(idss[l[2]])+"?start="+str(int(l[0]))+"&end="+str(int(l[1])))
